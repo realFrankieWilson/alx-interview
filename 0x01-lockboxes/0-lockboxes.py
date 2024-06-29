@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 
 """
 `Module 0-lockboxes` Provides a function that determins if all the boxes
