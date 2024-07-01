@@ -17,19 +17,17 @@ def minOperations(n):
     """
 
     # Check if n is equals to zero or if n is 1
-    if n == 0:
-        return 0
-    if n == 1:
-        return 1
+    if n <= 1:
+        return n
 
-    # Find the largest power of 2 that is less than or equals n
-    p = 1
-    while 2 * p <= n:
-        p *= 2
+    # Loop through possible divisors of n, starting from 2 up to the square
+    # root of n(inclusive).
 
-    # if n is a power of 2, return the number of steps needed
-    if n == p:
-        return n // p
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            # if n is divisible by i, the copy all operation is performed once
+            # and the pase operation is performed "n // i " times
+            return i + minOperations(n // i)
 
-    # Otherwise, recursely calculate the minimum number of operations for n-p
-    return (n - p) // p + 1 + n // p
+    # return a prime number, meaning the minimum of operation is n
+    return n
