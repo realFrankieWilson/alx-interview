@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+`Module 0-validate_utf8`
+"""
 
 
 def validUTF8(data):
@@ -31,6 +34,12 @@ def validUTF8(data):
             # 1 byte characters
             if n_bytes == 0:
                 continue
+
+            if n_bytes == 1 and bin_rep[0] == "0":
+                return False
+
+            if n_bytes > 4:
+                return False
         else:
             # Examine the current UTF-8 character.
             if not (bin_rep[0] == "1" and bin_rep[1] == "0"):
