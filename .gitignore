@@ -5,3 +5,5 @@ main_0.py
 jsn
 text.txt
 main.py
+node_modules/
+package-lock.json
